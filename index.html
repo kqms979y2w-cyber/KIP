@@ -49,6 +49,14 @@ h2{font-size:clamp(28px,4vw,40px);letter-spacing:-1px;margin:0 0 10px}
 details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px}
 summary{font-weight:700;cursor:pointer}details p{margin:10px 0 0;color:var(--mute)}
 .cta{text-align:center;padding:60px 0}
+.waitlist{max-width:440px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-weight:700;font-size:14px}
+.field input,.field select{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;appearance:none;-webkit-appearance:none}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--mute) 50%),linear-gradient(135deg,var(--mute) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+.field input:focus,.field select:focus{outline:2px solid var(--green);outline-offset:1px;border-color:var(--green)}
+.waitlist .btn{width:100%;margin-top:4px}.waitlist .btn:disabled{opacity:.6;cursor:wait}
+.form-msg{margin:0;font-size:14px;text-align:center;min-height:1.5em}.form-msg.ok{color:var(--green)}.form-msg.err{color:#c0392b}
 footer{padding:30px 0 40px;color:var(--mute);font-size:14px;text-align:center;border-top:1px solid var(--line)}
 @media(max-width:760px){.hero{grid-template-columns:1fr;text-align:center}.lead{margin-left:auto;margin-right:auto}.grid,.plans{grid-template-columns:1fr}}
 </style>
@@ -115,15 +123,37 @@ footer{padding:30px 0 40px;color:var(--mute);font-size:14px;text-align:center;bo
 <section class="cta" id="join">
 <h2>Ready to be held accountable?</h2>
 <p class="sub">Join the waitlist. Kip is already waiting.</p>
-<a class="btn" data-join href="mailto:hello@kip.com?subject=Kip%20waitlist&amp;body=Add%20me%20to%20the%20Kip%20waitlist!">Join the waitlist</a>
+<form class="card waitlist" id="waitlist-form" novalidate>
+<div class="field"><label for="wl-name">Full name</label><input id="wl-name" name="fullName" type="text" autocomplete="name" required minlength="2" maxlength="120" placeholder="Alex Frogman"></div>
+<div class="field"><label for="wl-age">Age</label><input id="wl-age" name="age" type="number" inputmode="numeric" min="1" max="120" required placeholder="19"></div>
+<div class="field"><label for="wl-email">Email</label><input id="wl-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></div>
+<div class="field"><label for="wl-source">How did you hear about Kip?</label>
+<select id="wl-source" name="source" required>
+<option value="" disabled selected>Choose one</option>
+<option>TikTok</option><option>Instagram</option><option>Friend</option><option>School</option><option>Search</option><option>Other</option>
+</select></div>
+<button class="btn" type="submit">Join the waitlist</button>
+<p class="form-msg" id="wl-msg" role="status" aria-live="polite"></p>
+</form>
 </section>
 </div>
 <footer>© Kip · The friend who won't let it slide.</footer>
 <script>
-// Replace with your waitlist form link (Tally, Google Forms, Typeform...)
-var WAITLIST_URL="";
-if(WAITLIST_URL){document.querySelectorAll("[data-join]").forEach(function(a){a.href=WAITLIST_URL;a.target="_blank";a.rel="noopener"})}
-else{document.querySelectorAll("[data-join]").forEach(function(a){if(a.getAttribute("href")==="#join")return;});}
+(function(){
+var form=document.getElementById("waitlist-form"),msg=document.getElementById("wl-msg"),btn=form.querySelector("button");
+function show(text,ok){msg.textContent=text;msg.className="form-msg "+(ok?"ok":"err")}
+form.addEventListener("submit",function(e){
+e.preventDefault();
+if(!form.checkValidity()){var bad=form.querySelector(":invalid");show(bad.id==="wl-source"?"Tell Kip how you heard about it.":"Check your "+bad.labels[0].textContent.toLowerCase()+".",false);bad.focus();return}
+var d=new FormData(form);
+btn.disabled=true;btn.textContent="Joining...";show("",true);
+fetch("/api/waitlist",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({fullName:d.get("fullName"),age:Number(d.get("age")),email:d.get("email"),source:d.get("source")})})
+.then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||"Something went wrong.");return j})})
+.then(function(j){form.reset();show(j.alreadyJoined?"You're already on the list. Kip remembers.":"You're in. Kip will be in touch. Kip is always in touch.",true)})
+.catch(function(err){show(err.message||"Something went wrong. Please try again.",false)})
+.finally(function(){btn.disabled=false;btn.textContent="Join the waitlist"});
+});
+})();
 </script>
 </body>
 </html>
