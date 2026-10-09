@@ -41,7 +41,9 @@ h2{font-size:clamp(28px,4vw,40px);letter-spacing:-1px;margin:0 0 10px}
 .card .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--green);font-weight:800;margin-bottom:10px}
 .card h3{margin:0 0 6px;font-size:19px}.card p{margin:0;color:var(--mute)}
 .quote{background:var(--green);color:var(--btnink);border-radius:24px;padding:40px 28px;text-align:center;font-size:clamp(22px,3.5vw,32px);font-weight:800;letter-spacing:-.5px}
-.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan .alt{margin:4px 0 0;color:var(--mute);font-size:15px}
+.plan .referral{display:inline-block;margin:10px 0 0;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--green);font-size:13px;font-weight:700}
 .plan ul{list-style:none;padding:0;margin:14px 0 0}.plan li{padding:6px 0;color:var(--mute)}
 .plan li::before{content:"✓ ";color:var(--green);font-weight:800}
 .price{font-size:34px;font-weight:800}.price small{font-size:15px;color:var(--mute);font-weight:500}
@@ -105,10 +107,14 @@ footer{padding:30px 0 40px;color:var(--mute);font-size:14px;text-align:center;bo
 <h2>Simple pricing</h2>
 <p class="sub">Start free. Upgrade when you're ready for more Kip.</p>
 <div class="plans">
-<div class="card plan"><h3>Free</h3><div class="price">€0</div>
-<ul><li>Kip, your grumpy frog</li><li>Goals &amp; study timer</li><li>Streak counter</li><li>Basic scoreboard</li></ul></div>
-<div class="card plan pro"><h3>Premium</h3><div class="price">€2<small> / month · or €15 / year</small></div>
-<ul><li>Custom character &amp; phrases</li><li>Adaptive study planning</li><li>Detailed analytics</li><li>Exam countdowns</li><li>Advanced accountability</li></ul></div>
+<div class="card plan"><h3>Free</h3><div class="price">CHF 0</div><p class="alt">Free forever</p>
+<ul><li>Basic Kip character</li><li>Basic progress tracking</li><li>Study timer</li><li>Streak counter</li></ul></div>
+<div class="card plan"><h3>Basic</h3><div class="price">CHF 2.49<small> / month</small></div><p class="alt">or CHF 20 / year</p>
+<p class="referral">CHF 15 / year when you refer a friend</p>
+<ul><li>Character customization</li><li>Advanced progress tracking &amp; analytics</li><li>Personalized Kip messages</li><li>Deadline countdowns</li></ul></div>
+<div class="card plan pro"><h3>Pro</h3><div class="price">CHF 4.99<small> / month</small></div><p class="alt">or CHF 50 / year</p>
+<p class="referral">CHF 45 / year when you refer a friend</p>
+<ul><li>Everything in Basic</li><li>Custom plans</li><li>Talk with Kip: anti-procrastination advice</li><li>Talk with Kip: screen time advice</li></ul></div>
 </div>
 </section>
 
