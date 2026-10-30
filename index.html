@@ -1,90 +1,35 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>Kip – the frog that won't let it slide</title>
-<link rel="icon" href="/favicon.ico?v=2" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
-<meta name="description" content="Kip is a brutally honest, passive-aggressive frog that calls you out when you scroll instead of study.">
+<link href="/favicon.ico?v=2" rel="icon" sizes="any"/>
+<link href="/favicon-32.png?v=2" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-512.png?v=2" rel="icon" sizes="512x512" type="image/png"/>
+<link href="/apple-touch-icon.png?v=2" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="Kip is a brutally honest, passive-aggressive frog that calls you out when you scroll instead of study." name="description"/>
 <style>
-:root{--bg:#f4f7f1;--card:#fff;--ink:#16241a;--mute:#5a6b5e;--green:#2f5d3a;--green2:#6b8f4e;--accent:#d9f0b8;--line:#dbe4d6;--btnink:#fff;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a13;--card:#17251c;--ink:#eaf3e4;--mute:#9db3a2;--green:#8fc46a;--green2:#6b8f4e;--accent:#243a2a;--line:#27382d;--btnink:#0f1a13}}
-:root[data-theme="dark"]{--bg:#0f1a13;--card:#17251c;--ink:#eaf3e4;--mute:#9db3a2;--green:#8fc46a;--green2:#6b8f4e;--accent:#243a2a;--line:#27382d;--btnink:#0f1a13}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{font-weight:800;font-size:24px;letter-spacing:-.5px;color:var(--green)}
-.btn{display:inline-block;background:var(--green);color:var(--btnink);padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:0;font-size:16px;cursor:pointer}
-.nav-right{display:flex;align-items:center;gap:10px}
-.lang{display:inline-flex;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px}
-.lang button{font:inherit;font-size:13px;font-weight:700;color:var(--mute);background:transparent;border:0;border-radius:999px;padding:6px 10px;cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--green);color:var(--btnink)}
-.lang button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
-.btn.small{padding:9px 16px;font-size:14px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:40px 0 60px}
-h1{font-size:clamp(36px,6vw,60px);line-height:1.05;margin:0 0 16px;letter-spacing:-1.5px}
-h1 span{color:var(--green)}
-.lead{font-size:19px;color:var(--mute);margin:0 0 26px;max-width:480px}
-.hero-art{display:flex;flex-direction:column;align-items:center;gap:14px}
-/* Mascot fix: frame crops the white edges of the image */
-.mascot-frame{width:min(300px,72%);aspect-ratio:1/1;border-radius:36px;overflow:hidden;background:#3d5f45;box-shadow:0 12px 32px rgba(0,0,0,.18)}
-.mascot{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.12);transform-origin:center top}
-.notif{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:center;max-width:340px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.notif b{font-size:14px;display:block}.notif small{color:var(--mute);font-size:13px}
-.dot{width:38px;height:38px;border-radius:10px;background:var(--green);flex:none;display:grid;place-items:center;font-size:20px}
-section{padding:50px 0}
-h2{font-size:clamp(28px,4vw,40px);letter-spacing:-1px;margin:0 0 10px}
-.sub{color:var(--mute);margin:0 0 30px;font-size:17px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
-.card .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--green);font-weight:800;margin-bottom:10px}
-.card h3{margin:0 0 6px;font-size:19px}.card p{margin:0;color:var(--mute)}
-.quote{background:var(--green);color:var(--btnink);border-radius:24px;padding:40px 28px;text-align:center;font-size:clamp(22px,3.5vw,32px);font-weight:800;letter-spacing:-.5px}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.plan .alt{margin:4px 0 0;color:var(--mute);font-size:15px}
-.plan .referral{display:inline-block;margin:10px 0 0;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--green);font-size:13px;font-weight:700}
-.plan ul{list-style:none;padding:0;margin:14px 0 0}.plan li{padding:6px 0;color:var(--mute)}
-.plan li::before{content:"✓ ";color:var(--green);font-weight:800}
-.price{font-size:34px;font-weight:800}.price small{font-size:15px;color:var(--mute);font-weight:500}
-.plan.pro{border:2px solid var(--green)}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px}
-summary{font-weight:700;cursor:pointer}details p{margin:10px 0 0;color:var(--mute)}
-.cta{text-align:center;padding:60px 0}
-.waitlist{max-width:440px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:14px}
-.field{display:flex;flex-direction:column;gap:6px}
-.field label{font-weight:700;font-size:14px}
-.field input,.field select{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;appearance:none;-webkit-appearance:none}
-.field select{background-image:linear-gradient(45deg,transparent 50%,var(--mute) 50%),linear-gradient(135deg,var(--mute) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
-.field input:focus,.field select:focus{outline:2px solid var(--green);outline-offset:1px;border-color:var(--green)}
-.waitlist .btn{width:100%;margin-top:4px}.waitlist .btn:disabled{opacity:.6;cursor:wait}
-.form-msg{margin:0;font-size:14px;text-align:center;min-height:1.5em}.form-msg.ok{color:var(--green)}.form-msg.err{color:#c0392b}
-footer{padding:30px 0 40px;color:var(--mute);font-size:14px;text-align:center;border-top:1px solid var(--line)}
-@media(max-width:760px){.hero{grid-template-columns:1fr;text-align:center}.lead{margin-left:auto;margin-right:auto}.grid,.plans{grid-template-columns:1fr}}
+:root{--bg:#f6f8f1;--card:#fff;--ink:#192b20;--mute:#5d7062;--green:#355e40;--green2:#6b8f4e;--accent:#dcebc7;--line:#d9e3d2;--btnink:#fff;--soft:#e8eedf;--pale:#edf3e6;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:108px}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}a{color:inherit}button,input,select{font:inherit}.wrap{width:min(1120px,100% - 64px);margin-inline:auto}.skip-link{position:fixed;top:-100px;left:20px;z-index:20;background:white;padding:12px}.skip-link:focus{top:10px}.site-header{background:#f6f8f1f2;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}nav{display:flex;align-items:center;justify-content:space-between;gap:22px;min-height:88px}.logo{font-weight:850;font-size:29px;letter-spacing:-1.2px;color:var(--green);display:flex;align-items:center;text-decoration:none}.logo img{width:38px;height:38px;object-fit:cover}.nav-links,.nav-right{display:flex;align-items:center;gap:25px}.nav-links a{text-decoration:none;font-size:14px;font-weight:650;color:var(--mute)}.nav-links a:hover{color:var(--green);text-decoration:underline;text-underline-offset:6px}.nav-right{gap:12px}.btn{display:inline-flex;justify-content:center;align-items:center;background:var(--green);color:var(--btnink);padding:14px 25px;border-radius:100px;font-weight:750;text-decoration:none;border:1px solid transparent;font-size:16px;cursor:pointer;transition:transform .18s,background .18s}.btn:hover{background:#25472f;transform:translateY(-2px)}.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #86a766;outline-offset:4px}.btn.small{padding:10px 18px;font-size:14px}.lang{display:inline-flex;border:1px solid var(--line);background:var(--card);border-radius:100px;padding:3px}.lang button{font-size:12px;font-weight:750;color:var(--mute);background:transparent;border:0;border-radius:100px;padding:6px 9px;cursor:pointer}.lang button[aria-pressed=true]{background:var(--green);color:white}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:center;padding-block:78px 90px}h1{font-size:clamp(42px,5.3vw,70px);line-height:1.05;margin:0 0 26px;letter-spacing:-3px}h1 span{color:var(--green)}.lead{font-size:19px;color:var(--mute);margin:0 0 30px;max-width:520px}.hero-art{display:flex;flex-direction:column;align-items:center;gap:17px;max-width:375px;width:100%;justify-self:end}.mascot-frame{width:100%;aspect-ratio:1/1;border-radius:35px;overflow:hidden;background:#3d5f45;box-shadow:0 14px 35px #243d2420}.mascot{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.12);transform-origin:center top}.notif{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:17px;display:flex;gap:13px;align-items:center;width:100%;box-shadow:0 9px 24px #243d2410}.notif b{font-size:14px;display:block}.notif small{color:var(--mute);font-size:13px;display:block;line-height:1.55}.dot{width:42px;height:42px;border-radius:12px;background:var(--green);flex:none;overflow:hidden}.dot img{width:100%;height:100%;object-fit:cover}section{padding-block:76px}.tone-soft{background:var(--soft)}.tone-pale{background:var(--pale)}.tone-white{background:#fff}.slogan-band{background:var(--green);padding-block:48px}.quote{color:#fff;text-align:center;font-size:clamp(27px,3.2vw,43px);line-height:1.3;font-weight:750;letter-spacing:-1px}h2{font-size:clamp(31px,3.5vw,44px);line-height:1.15;letter-spacing:-1.5px;margin:0 0 14px}.sub{color:var(--mute);margin:0 0 34px;font-size:17px;max-width:750px}.grid,.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:29px}.card .n{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:13px;background:var(--accent);color:var(--green);font-weight:800;margin-bottom:25px}.card h3{margin:0 0 13px;font-size:21px;line-height:1.3;letter-spacing:-.4px}.card p{margin:0;color:var(--mute);font-size:15px}.plan{display:flex;flex-direction:column;position:relative}.plan .price{font-size:34px;font-weight:800;letter-spacing:-1.3px;line-height:1.25;margin-top:5px}.price small{font-size:14px;font-weight:500;letter-spacing:0;color:var(--mute)}.plan .alt{margin-top:8px;font-size:14px}.plan .referral{margin-top:20px;padding:8px 10px;border-radius:10px;background:var(--pale);color:var(--green);font-size:12px;font-weight:700}.plan ul{list-style:none;padding:0;margin:23px 0 28px}.plan li{padding:9px 0 9px 23px;color:var(--mute);font-size:14px;position:relative;border-bottom:1px solid #edf1e7}.plan li:before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:800}.plan .btn{margin-top:auto;font-size:14px}.plan.pro{border:2px solid var(--green);background:#fbfdf8}details{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:22px 25px;margin-bottom:13px}summary{font-size:18px;font-weight:700;cursor:pointer}details p{margin:14px 0 0;color:var(--mute);max-width:850px}.cta{text-align:center;background:var(--soft)}.cta .sub{margin-inline:auto}.waitlist{max-width:490px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:19px;padding:31px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-weight:700;font-size:14px}.field input,.field select{font-size:16px;color:var(--ink);background:#f8faf4;border:1px solid var(--line);border-radius:11px;padding:12px 14px;width:100%;min-height:49px}.field input:focus,.field select:focus{outline:2px solid #6b8f4e;outline-offset:2px}.waitlist .btn{width:100%;margin-top:5px}.waitlist .btn:disabled{opacity:.6;cursor:wait}.form-msg{margin:0;font-size:14px;text-align:center;min-height:1.5em}.form-msg.ok{color:var(--green)}.form-msg.err{color:#b63528}footer{padding:29px 24px;color:var(--mute);font-size:13px;text-align:center;border-top:1px solid var(--line)}
+@media(max-width:960px){.nav-links{gap:14px}.nav-right{gap:8px}.hero{gap:35px}.card{padding:23px}.plan .price{font-size:29px}.price small{display:block}.grid,.plans{gap:15px}}
+@media(max-width:760px){html{scroll-padding-top:145px}.wrap{width:calc(100% - 36px)}nav{flex-wrap:wrap;gap:12px;padding-block:14px;min-height:104px}.logo{font-size:26px}.nav-right{margin-left:auto}.nav-links{order:3;width:100%;justify-content:center;gap:30px;padding-top:3px}.nav-links a{font-size:13px}.hero{grid-template-columns:1fr;text-align:center;padding-block:45px 52px;gap:39px}h1{font-size:49px;letter-spacing:-2px}.lead{margin-inline:auto;font-size:17px}.hero-art{justify-self:center;max-width:345px}.hero .btn{width:auto}.grid,.plans{grid-template-columns:1fr}.card{padding:26px}.card .n{margin-bottom:18px}.price small{display:inline}section{padding-block:52px}.slogan-band{padding-block:36px}.sub{font-size:16px}.waitlist{padding:25px}.btn.small{font-size:12px;padding:9px 13px}.lang button{padding:5px 7px}.plan .price{font-size:36px}details{padding:20px}summary{font-size:17px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<nav><div class="logo"><img src="kip.png" alt="" width="34" height="33" style="vertical-align:middle;border-radius:9px;margin-right:8px">kip.</div><div class="nav-right"><div class="lang" role="group" aria-label="Language" data-i18n-aria="langLabel"><button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button><button type="button" data-lang="de" aria-pressed="false" lang="de">DE</button></div><a class="btn small" href="#join" data-join data-i18n="navJoin">Join waitlist</a></div></nav>
-
-<header class="hero">
+<a class="skip-link" data-i18n="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap"><nav><a aria-label="Kip home" class="logo" href="#top"><img alt="" height="33" src="kip.png" style="vertical-align:middle;border-radius:9px;margin-right:8px" width="34"/>kip.</a><div class="nav-links"><a data-i18n="navHow" href="#how">How it works</a><a data-i18n="navPricing" href="#pricing">Pricing</a><a data-i18n="navFaq" href="#faq">Questions</a></div><div class="nav-right"><div aria-label="Language" class="lang" data-i18n-aria="langLabel" role="group"><button aria-pressed="true" data-lang="en" lang="en" type="button">EN</button><button aria-pressed="false" data-lang="de" lang="de" type="button">DE</button></div><a class="btn small" data-i18n="navJoin" data-join="" href="#join">Join waitlist</a></div></nav></div></header><main id="main"><div class="hero wrap" id="top">
 <div>
 <h1 data-i18n-html="heroTitle">The frog that <span>won't let it slide.</span></h1>
 <p class="lead" data-i18n="heroLead">Kip is your brutally honest, passive-aggressive study companion. Open Instagram instead of your notes? Kip noticed. Kip always notices.</p>
-<a class="btn" href="#join" data-join data-i18n="heroCta">Get early access</a>
+<a class="btn" data-i18n="heroCta" data-join="" href="#join">Get early access</a>
 </div>
 <div class="hero-art">
-<div class="mascot-frame"><img class="mascot" src="kip.png" alt="Kip the grumpy frog with arms crossed" data-i18n-alt="mascotAlt" width="360" height="346"></div>
-<div class="notif"><div class="dot" style="overflow:hidden;padding:0"><img src="kip.png" alt="" width="38" height="37" style="width:100%;height:100%;object-fit:cover"></div><div><b>Kip</b><small data-i18n="notif">Cool. Instagram again. Your exam is in 9 days, by the way.</small></div></div>
+<div class="mascot-frame"><img alt="Kip the grumpy frog with arms crossed" class="mascot" data-i18n-alt="mascotAlt" height="346" src="kip.png" width="360"/></div>
+<div class="notif"><div class="dot" style="overflow:hidden;padding:0"><img alt="" height="37" src="kip.png" style="width:100%;height:100%;object-fit:cover" width="38"/></div><div><b>Kip</b><small data-i18n="notif">Cool. Instagram again. Your exam is in 9 days, by the way.</small></div></div>
 </div>
-</header>
-
-<section>
+</div><section class="tone-soft" id="how"><div class="wrap">
 <h2 data-i18n="howTitle">How Kip works</h2>
 <p class="sub" data-i18n="howSub">Not a blocker. A companion you can't ignore.</p>
 <div class="grid">
@@ -92,13 +37,9 @@ footer{padding:30px 0 40px;color:var(--mute);font-size:14px;text-align:center;bo
 <div class="card"><div class="n">2</div><h3 data-i18n="how2t">Study with the timer</h3><p data-i18n="how2p">Start a session and build your streak. Kip stays quiet while you work, and sees everything.</p></div>
 <div class="card"><div class="n">3</div><h3 data-i18n="how3t">Get called out</h3><p data-i18n="how3p">Drift to a "forbidden" app and Kip steps in. Close it in time and Kip lets it slide. Just this once.</p></div>
 </div>
-</section>
-
-<section>
-<div class="quote" data-i18n-html="quote">"No one is coming to save you.<br>Kip is just here to watch."</div>
-</section>
-
-<section>
+</div></section><section class="slogan-band"><div class="wrap">
+<div class="quote" data-i18n-html="quote">No one is coming to save you.<br/>Kip is just here to watch.</div>
+</div></section><section class="tone-white" id="why"><div class="wrap">
 <h2 data-i18n="whyTitle">Why it's different</h2>
 <p class="sub" data-i18n="whySub">Most apps restrict you. Kip tackles the root: the habit.</p>
 <div class="grid">
@@ -106,48 +47,41 @@ footer{padding:30px 0 40px;color:var(--mute);font-size:14px;text-align:center;bo
 <div class="card"><h3 data-i18n="why2t">Real accountability</h3><p data-i18n="why2p">Streaks, goals, and soon friend leaderboards so skipping has a cost.</p></div>
 <div class="card"><h3 data-i18n="why3t">Habits, not blocks</h3><p data-i18n="why3p">Kip builds the intrinsic motivation you need, until you don't need Kip anymore.</p></div>
 </div>
-</section>
-
-<section>
+</div></section><section class="tone-pale" id="pricing"><div class="wrap">
 <h2 data-i18n="priceTitle">Simple pricing</h2>
 <p class="sub" data-i18n="priceSub">Start free. Upgrade when you're ready for more Kip.</p>
 <div class="plans">
 <div class="card plan"><h3 data-i18n="freeT">Free</h3><div class="price">CHF 0</div><p class="alt" data-i18n="freeAlt">Free forever</p>
-<ul><li data-i18n="free1">Basic Kip character</li><li data-i18n="free2">Basic progress tracking</li><li data-i18n="free3">Study timer</li><li data-i18n="free4">Streak counter</li></ul></div>
+<ul><li data-i18n="free1">Basic Kip character</li><li data-i18n="free2">Basic progress tracking</li><li data-i18n="free3">Study timer</li><li data-i18n="free4">Streak counter</li></ul><a class="btn" data-i18n="planCta" data-join="" href="#join">Get early access</a></div>
 <div class="card plan"><h3>Basic</h3><div class="price">CHF 2.49<small data-i18n="perMonth"> / month</small></div><p class="alt" data-i18n="basicAlt">or CHF 20 / year</p>
 <p class="referral" data-i18n="basicRef">CHF 15 / year when you refer a friend</p>
-<ul><li data-i18n="basic1">Character customization</li><li data-i18n-html="basic2">Advanced progress tracking &amp; analytics</li><li data-i18n="basic3">Personalized Kip messages</li><li data-i18n="basic4">Deadline countdowns</li></ul></div>
+<ul><li data-i18n="basic1">Character customization</li><li data-i18n-html="basic2">Advanced progress tracking &amp; analytics</li><li data-i18n="basic3">Personalized Kip messages</li><li data-i18n="basic4">Deadline countdowns</li></ul><a class="btn" data-i18n="planCta" data-join="" href="#join">Get early access</a></div>
 <div class="card plan pro"><h3>Pro</h3><div class="price">CHF 4.99<small data-i18n="perMonth"> / month</small></div><p class="alt" data-i18n="proAlt">or CHF 50 / year</p>
 <p class="referral" data-i18n="proRef">CHF 45 / year when you refer a friend</p>
-<ul><li data-i18n="pro1">Everything in Basic</li><li data-i18n="pro2">Custom plans</li><li data-i18n="pro3">Talk with Kip: anti-procrastination advice</li><li data-i18n="pro4">Talk with Kip: screen time advice</li></ul></div>
+<ul><li data-i18n="pro1">Everything in Basic</li><li data-i18n="pro2">Custom plans</li><li data-i18n="pro3">Talk with Kip: anti-procrastination advice</li><li data-i18n="pro4">Talk with Kip: screen time advice</li></ul><a class="btn" data-i18n="planCta" data-join="" href="#join">Get early access</a></div>
 </div>
-</section>
-
-<section>
+</div></section><section class="tone-white" id="faq"><div class="wrap">
 <h2 data-i18n="faqTitle">Questions</h2>
-<details><summary data-i18n="faq1q">Who is Kip for?</summary><p data-i18n="faq1a">Students and anyone who struggles with procrastination and wants to change their scrolling habits.</p></details>
-<details><summary data-i18n="faq2q">Does Kip block my apps?</summary><p data-i18n="faq2a">No. Kip motivates instead of restricting. You pick which apps count as distractions, and Kip calls you out.</p></details>
-<details><summary data-i18n="faq3q">What about my data?</summary><p data-i18n="faq3a">App usage tracking is strictly opt-in, with your consent, and used only to power Kip's nudges.</p></details>
-<details><summary data-i18n="faq4q">When can I get it?</summary><p data-i18n="faq4a">Kip is in early development. Join the waitlist and you'll be among the first to try it.</p></details>
-</section>
-
-<section class="cta" id="join">
+<details open=""><summary data-i18n="faq1q">Who is Kip for?</summary><p data-i18n="faq1a">Students and anyone who struggles with procrastination and wants to change their scrolling habits.</p></details>
+<details open=""><summary data-i18n="faq2q">Does Kip block my apps?</summary><p data-i18n="faq2a">No. Kip motivates instead of restricting. You pick which apps count as distractions, and Kip calls you out.</p></details>
+<details open=""><summary data-i18n="faq3q">What about my data?</summary><p data-i18n="faq3a">App usage tracking is strictly opt-in, with your consent, and used only to power Kip's nudges.</p></details>
+<details open=""><summary data-i18n="faq4q">When can I get it?</summary><p data-i18n="faq4a">Kip is in early development. Join the waitlist and you'll be among the first to try it.</p></details>
+</div></section><section class="cta" id="join"><div class="wrap">
 <h2 data-i18n="ctaTitle">Ready to be held accountable?</h2>
 <p class="sub" data-i18n="ctaSub">Join the waitlist. Kip is already waiting.</p>
-<form class="card waitlist" id="waitlist-form" novalidate>
-<div class="field"><label for="wl-name" data-i18n="fName">Full name</label><input id="wl-name" name="fullName" type="text" autocomplete="name" required minlength="2" maxlength="120" placeholder="Alex Frogman" data-i18n-ph="phName"></div>
-<div class="field"><label for="wl-age" data-i18n="fAge">Age</label><input id="wl-age" name="age" type="number" inputmode="numeric" min="1" max="120" required placeholder="19"></div>
-<div class="field"><label for="wl-email" data-i18n="fEmail">Email</label><input id="wl-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com" data-i18n-ph="phEmail"></div>
-<div class="field"><label for="wl-source" data-i18n="fSource">How did you hear about Kip?</label>
-<select id="wl-source" name="source" required>
-<option value="" disabled selected data-i18n="optChoose">Choose one</option>
-<option value="TikTok">TikTok</option><option value="Instagram">Instagram</option><option value="Friend" data-i18n="optFriend">Friend</option><option value="School" data-i18n="optSchool">School</option><option value="Search" data-i18n="optSearch">Search</option><option value="Other" data-i18n="optOther">Other</option>
+<form class="card waitlist" id="waitlist-form" novalidate="">
+<div class="field"><label data-i18n="fName" for="wl-name">Full name</label><input autocomplete="name" data-i18n-ph="phName" id="wl-name" maxlength="120" minlength="2" name="fullName" placeholder="Alex Frogman" required="" type="text"/></div>
+<div class="field"><label data-i18n="fAge" for="wl-age">Age</label><input id="wl-age" inputmode="numeric" max="120" min="1" name="age" placeholder="19" required="" type="number"/></div>
+<div class="field"><label data-i18n="fEmail" for="wl-email">Email</label><input autocomplete="email" data-i18n-ph="phEmail" id="wl-email" maxlength="254" name="email" placeholder="you@example.com" required="" type="email"/></div>
+<div class="field"><label data-i18n="fSource" for="wl-source">How did you hear about Kip?</label>
+<select id="wl-source" name="source" required="">
+<option data-i18n="optChoose" disabled="" selected="" value="">Choose one</option>
+<option value="TikTok">TikTok</option><option value="Instagram">Instagram</option><option data-i18n="optFriend" value="Friend">Friend</option><option data-i18n="optSchool" value="School">School</option><option data-i18n="optSearch" value="Search">Search</option><option data-i18n="optOther" value="Other">Other</option>
 </select></div>
-<button class="btn" type="submit" data-i18n="submit">Join the waitlist</button>
-<p class="form-msg" id="wl-msg" role="status" aria-live="polite"></p>
+<button class="btn" data-i18n="submit" type="submit">Join the waitlist</button>
+<p aria-live="polite" class="form-msg" id="wl-msg" role="status"></p>
 </form>
-</section>
-</div>
+</div></section></main>
 <footer data-i18n="footer">© Kip · The friend who won't let it slide.</footer>
 <script>
 (function(){
@@ -155,6 +89,7 @@ var DE={
 title:"Kip – der Frosch, der nichts durchgehen lässt",
 description:"Kip ist ein schonungslos ehrlicher, passiv-aggressiver Frosch, der dich ertappt, wenn du scrollst statt lernst.",
 langLabel:"Sprache",
+navHow:"So funktioniert’s",navPricing:"Preise",navFaq:"Fragen",skip:"Zum Inhalt springen",planCta:"Frühzugang sichern",
 navJoin:"Zur Warteliste",
 heroTitle:'Der Frosch, der <span>nichts durchgehen lässt.</span>',
 heroLead:"Kip ist dein schonungslos ehrlicher, passiv-aggressiver Lernbegleiter. Instagram statt Notizen geöffnet? Kip hat es gesehen. Kip sieht alles.",
@@ -169,7 +104,7 @@ how2t:"Lerne mit dem Timer",
 how2p:"Starte eine Session und bau deine Serie auf. Kip bleibt still, während du arbeitest, und sieht alles.",
 how3t:"Lass dich ertappen",
 how3p:"Wechselst du zu einer \u201everbotenen\u201c App, schreitet Kip ein. Schliesst du sie rechtzeitig, lässt Kip es durchgehen. Nur dieses eine Mal.",
-quote:"\u201eNiemand kommt, um dich zu retten.<br>Kip schaut nur zu.\u201c",
+quote:"Niemand kommt, um dich zu retten.<br>Kip schaut nur zu.",
 whyTitle:"Was Kip anders macht",
 whySub:"Die meisten Apps schränken dich ein. Kip packt das Problem an der Wurzel: die Gewohnheit.",
 why1t:"Schonungslose Ehrlichkeit",
