@@ -1,3 +1,5 @@
+LATEST WINDOWS ADDITION: If previous updates are already live, upload/replace beta.html and add kip-windows.png in the repository root. Commit those two files.
+
 KIP website update with TestFlight recording
 
 If you already uploaded the previous branding update: upload/replace beta.html and add beta-demo.mp4 and beta-poster.jpg in the repository ROOT, next to index.html. Commit these three files.
