@@ -1,9 +1,9 @@
-KIP branding update
+KIP website update with TestFlight recording
 
-Upload index.html, beta.html, kip-mascot.png and kip-wordmark.png to the ROOT of your GitHub repository, replacing the existing HTML files. Keep the image filenames exactly as supplied. Other existing assets and the waitlist API remain required.
+If you already uploaded the previous branding update: upload/replace beta.html and add beta-demo.mp4 and beta-poster.jpg in the repository ROOT, next to index.html. Commit these three files.
 
-VIDEO: Export your portrait screen recording as an H.264 MP4, name it beta-demo.mp4 and put it beside beta.html in the repository root. The Beta page automatically loads it into the iPhone frame. Until then it shows an honest coming-soon message. Landscape videos are letterboxed without cropping. The phone has native playback controls, no autoplay. A MOV should be exported to MP4 first.
+If you have not uploaded the previous update: also upload index.html, kip-mascot.png and kip-wordmark.png from this ZIP.
 
-The ZIP does not replace your entire repository. Keep your existing api/waitlist.js and deployment settings. No live deployment or database changes were made.
+Keep all existing API files, icons and deployment configuration. Upload the extracted files, not the ZIP. The TestFlight recording plays inside the iPhone frame with native controls and no autoplay. The full recording and audio are preserved. Converted from HEVC MOV to 720px H.264/AAC MP4 with fast-start.
 
-The requested statistic is paraphrased, not a direct quotation. A source link and study context are included.
+Validated local browser playback. No live website deployment or database changes were made.
